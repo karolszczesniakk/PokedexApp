@@ -36,7 +36,6 @@ const FilterOptions: React.FC<Props> = ({ onSubmit }) => {
           <span>Type: </span>
           <input ref={typeInputRef} placeholder="Pokemon's type"></input>
         </div>
-
         <Button type="submit">Filter</Button>
       </form>
     </div>

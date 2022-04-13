@@ -16,7 +16,6 @@ const toggleTheme: CaseReducer<Theme> = (state) => {
   }
 };
 
-
 const themeSlice = createSlice({
   name: "theme",
   initialState: defaultState,
@@ -24,7 +23,6 @@ const themeSlice = createSlice({
     toggleTheme,
   }
 })
-
 
 export const themeActions = themeSlice.actions;
 

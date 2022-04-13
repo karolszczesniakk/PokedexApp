@@ -9,7 +9,6 @@ import useHttp from './hooks/use-http';
 import { RootState, useAppDispatch } from './store';
 import { pokemonsActions } from './store/pokemons-slice';
 
-
 function App() {
   const nextUrl = useSelector((state: RootState) => state.pokemons.next)
   const dispatch = useAppDispatch();
@@ -38,7 +37,7 @@ function App() {
   return (
     <Layout>
       <PokemonsList />
-      <Button onClick={handleLoadMorePokemons}>Get more pokemons</Button>
+      <Button onClick={handleLoadMorePokemons}>Load more pokemons</Button>
       {status === "pending" && <LoadingSpinner />}
     </Layout>
   );

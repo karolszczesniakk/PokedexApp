@@ -11,9 +11,7 @@ const Header: React.FC = () => {
   const style = themeType === "light" ? "header header--light" : "header";
   return (
     <header className={style}>
-      
         <h1>Pokedex App</h1>
-      
       <Button
         onClick={() => {
           dispatch(themeActions.toggleTheme());

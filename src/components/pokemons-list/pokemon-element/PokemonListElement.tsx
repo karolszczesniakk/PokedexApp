@@ -13,7 +13,6 @@ const PokemonListElement: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
 
   const themeType = useSelector((state: RootState) => state.theme.themeType);
 
-
   const handleClick = () => {
     setShowDetails((prevState) => !prevState);
   };
