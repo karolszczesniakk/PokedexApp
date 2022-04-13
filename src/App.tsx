@@ -2,15 +2,20 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { GetPokemonsData, getPokemonsData } from './api/api';
 import Layout from './components/layout/Layout';
+import PokemonsList from './components/pokemons-list/PokemonsList';
 import useHttp from './hooks/use-http';
 import { RootState, useAppDispatch } from './store';
 import { pokemonsActions } from './store/pokemons-slice';
 
 
 function App() {
-  //const nextUrl = useSelector((state: RootState) => state.pokemons.next)
+  const nextUrl = useSelector((state: RootState) => state.pokemons.next)
   const dispatch = useAppDispatch();
   const { sendRequest, data: apiData } = useHttp<GetPokemonsData>(getPokemonsData)
+
+  const handleLoadMorePokemons = () => {
+    sendRequest(nextUrl);
+  }
 
   //fetch first 20 pokemons
   useEffect(() => {
@@ -29,11 +34,10 @@ function App() {
   console.log(apiData);
   
   return (
-    <div className="App">
       <Layout>
-        <div> Witam123 </div>
+      <PokemonsList />
+      <button onClick={handleLoadMorePokemons}>Get more pokemons</button>
       </Layout>
-    </div>
   );
 }
 

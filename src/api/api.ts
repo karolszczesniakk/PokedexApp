@@ -1,3 +1,4 @@
+import capitalizeFirstLetter from "../functions/capitalizeFirstLtter";
 import { PokemonsData } from "../store/pokemons-slice";
 import Pokemon from "../types/Pokemon";
 
@@ -43,31 +44,26 @@ export const getPokemonsData: GetPokemonsData = async (url: string) => {
   const detailedData = await Promise.all(pokemonsPromises);
   console.log(detailedData);
 
-
   //transforming data
   const pokemonsData: Pokemon[] = detailedData.map((pokemonData: any) => {
     const pokemon: Pokemon = {
-      name: pokemonData.name,
+      name: capitalizeFirstLetter(pokemonData.name),
       height: pokemonData.height,
       sprites: {
         front_default: pokemonData.sprites.front_default,
         back_default: pokemonData.sprites.back_default,
       },
-      type: {
-        name: pokemonData.types[0].type.name,
-        url: pokemonData.types[0].type.url,
-      },
+      type: capitalizeFirstLetter(pokemonData.types[0].type.name)
     };
     return pokemon;
   });
 
-  
   const finalData: PokemonsData = {
     next: generalData.next,
     pokemons: pokemonsData,
-  }
+  };
 
-  console.log(finalData)
+  console.log(finalData);
 
   return finalData;
 };

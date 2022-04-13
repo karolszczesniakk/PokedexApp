@@ -1,5 +1,5 @@
 type Pokemon = {
-  name: String;
+  name: string;
   height: number;
 
   sprites: {
@@ -7,10 +7,9 @@ type Pokemon = {
     back_default: string;
   };
 
-  type: {
-    name: string;
-    url: string;
-  };
+  type: string;
+
+
 };
 
 export default Pokemon;
