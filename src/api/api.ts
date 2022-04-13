@@ -30,7 +30,6 @@ export const getPokemonsData: GetPokemonsData = async (url: string) => {
   const pokemonsDataUrls = generalData.results.map(
     (result: Result) => result.url
   );
-  console.log(pokemonsDataUrls);
 
   const pokemonsPromises = pokemonsDataUrls.map(async (url: string) => {
     const response = await fetch(url);
@@ -41,7 +40,6 @@ export const getPokemonsData: GetPokemonsData = async (url: string) => {
 
   //detailed data of 20 pokemons
   const detailedData = await Promise.all(pokemonsPromises);
-  console.log(detailedData);
 
   //transforming data
   const pokemonsData: Pokemon[] = detailedData.map((pokemonData: any) => {
@@ -63,8 +61,6 @@ export const getPokemonsData: GetPokemonsData = async (url: string) => {
     next: generalData.next,
     pokemons: pokemonsData,
   };
-
-  console.log(finalData);
 
   return finalData;
 };
