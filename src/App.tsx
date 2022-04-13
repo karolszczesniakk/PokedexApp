@@ -40,8 +40,7 @@ function App() {
   return (
     <Layout>
       {content}
-      <Button onClick={handleLoadMorePokemons}>Load more pokemons</Button>
-      {status === "pending" && <LoadingSpinner />}
+      {status === "pending" ? <LoadingSpinner /> : <Button onClick={handleLoadMorePokemons}>Load more pokemons</Button>} a
     </Layout>
   );
 }
