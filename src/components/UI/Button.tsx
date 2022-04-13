@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 import "./Button.css";
 
 interface ButtonProps {
@@ -8,11 +10,17 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = (props) => {
   const { children, onClick, type } = props;
+
+    const themeType = useSelector((state: RootState) => state.theme.themeType);
+
+    const styleClass = themeType === "light" ? "my-button my-button--light" : "my-button";
+
+  
   return (
     <button
       type={type ? type : undefined}
       onClick={onClick}
-      className="my-button"
+      className={styleClass}
     >
       {children}
     </button>

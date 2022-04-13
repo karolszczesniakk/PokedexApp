@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import capitalizeFirstLetter from "../../../functions/capitalizeFirstLtter";
+import { RootState } from "../../../store";
 import Pokemon from "../../../types/Pokemon";
 import PokemonDetails from "./PokemonDetails";
 import "./PokemonListElement.css";
@@ -9,13 +11,20 @@ const PokemonListElement: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
   const { name, type, sprites, height, weight } = pokemon;
   const { front_default } = sprites;
 
+  const themeType = useSelector((state: RootState) => state.theme.themeType);
+
+
   const handleClick = () => {
     setShowDetails((prevState) => !prevState);
   };
 
-  const style = showDetails
+  let style = showDetails
     ? "pokemon-list-element pokemon-list-element--expand"
     : "pokemon-list-element";
+  
+  if (themeType === "light") {
+    style += " pokemon-list-element--light"
+  }
 
   return (
     <div className="pokemon-list-element-wrapper">

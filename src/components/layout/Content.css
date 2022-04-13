@@ -9,3 +9,8 @@
   align-content: center;
   background-color: rgb(30, 30, 104);
 }
+
+.content--light {
+  background-color: #ffffff;
+  color:black
+}

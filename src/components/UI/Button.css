@@ -1,6 +1,6 @@
 .my-button {
-  background-color: transparent ;
-  color: rgb(0, 0, 0);
+  background-color: transparent;
+  color:rgb(255, 255, 255);
   border-radius: 4px;
   padding: 0.75rem 1.5rem;
   border: 1px solid rgb(255, 255, 255);
@@ -8,7 +8,6 @@
   align-self: center;;
   font-size: 1rem;
   margin: 0.5rem;
-  color:white
   
 }
 
@@ -18,3 +17,20 @@
   border-color: rgb(255, 255, 255);
   color:black
 }
+
+.my-button--light {
+  background-color: transparent ;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgb(0, 0, 0);
+  color:rgb(0, 0, 0)
+}
+
+.my-button--light:hover,
+.my-button--light:active{
+  background-color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
+  color:rgb(255, 255, 255)
+}
+  
+

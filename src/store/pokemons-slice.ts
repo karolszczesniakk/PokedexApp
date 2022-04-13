@@ -11,13 +11,10 @@ const defaultState: PokemonsData = {
   pokemons: [],
 };
 
-
 const addPokemons: CaseReducer<PokemonsData, PayloadAction<PokemonsData>> = (state, action) => {
   state.next = action.payload.next;
   state.pokemons = [...state.pokemons, ...action.payload.pokemons];
 }
-
-
 
 const pokemonsSlice = createSlice({
   name: "pokemons",

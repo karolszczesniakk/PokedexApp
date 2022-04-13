@@ -1,16 +1,22 @@
 .header {
-  width: 100%;
+  width: 100vw;
   height: 6rem;
-  text-align: center;
-  display:flex;
-  flex-direction: row;
+  display: flex;
+  padding: 0 5%;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;;
+  color:rgb(255, 25, 9);
 
   background-color: rgb(29, 29, 116);
 }
 
-.header__logo {
-  color:rgb(255, 239, 9)
 
+.header--light{
+  background-color: rgb(238, 32, 32);
+  color: rgb(0, 0, 0);
+  border-bottom: 3px solid black;
+}
+
+.header__logo--light{
+  color:rgb(0, 0, 0)
 }

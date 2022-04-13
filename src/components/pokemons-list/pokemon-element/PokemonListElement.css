@@ -17,7 +17,13 @@
   align-items: center;
   text-align: left;
   cursor: pointer;
-  transition: 0.5s;
+  transition: height 0.5s;
+}
+.pokemon-list-element--light{
+  background-color: rgb(209, 209, 219);
+  box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 0.63);
+  border-color: black;
+
 }
 
 .pokemon-list-element--expand{
@@ -34,11 +40,15 @@
 }
 
 .pokemon-list-element:hover{
-  box-shadow: 0 0 1em rgb(222, 224, 250) ;
+  box-shadow: 0 0 1em rgb(0, 0, 0) ;
 }
 
 .pokemon-list-element:hover img{
-  transform: scale(1.15);
+  transform: scale(1.3);
+}
+
+.pokemon-list-element--light:hover{
+  box-shadow: 0em 0em 1em rgb(255, 0, 0) ;
 }
 
 
