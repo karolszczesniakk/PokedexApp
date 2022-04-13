@@ -12,7 +12,7 @@ import { pokemonsActions } from './store/pokemons-slice';
 function App() {
   const nextUrl = useSelector((state: RootState) => state.pokemons.next)
   const dispatch = useAppDispatch();
-  const { sendRequest, data: apiData,status } = useHttp<GetPokemonsData>(getPokemonsData)
+  const { sendRequest, data: apiData,status, error } = useHttp<GetPokemonsData>(getPokemonsData)
 
   const handleLoadMorePokemons = () => {
     sendRequest(nextUrl);
@@ -26,17 +26,24 @@ function App() {
 
   //add pokemons to store everytime there new pokemons data
   useEffect(() => {
-    console.log("dispatching");
     if (apiData) {
       dispatch(pokemonsActions.addPokemons(apiData));
     }
   }, [apiData,dispatch]);
   
-  console.log(apiData);
+  let content = <LoadingSpinner />
+
+  if (status === "completed" && apiData) {
+    content = <PokemonsList />
+  }
+
+  if (error || (status==="completed" && !apiData)) {
+    content = <p>Error with fetching products data</p>
+  }
   
   return (
     <Layout>
-      <PokemonsList />
+      {content}
       <Button onClick={handleLoadMorePokemons}>Load more pokemons</Button>
       {status === "pending" && <LoadingSpinner />}
     </Layout>

@@ -8,12 +8,8 @@ import PokemonListElement from "./pokemon-element/PokemonListElement";
 import "./PokemonsList.css";
 
 const PokemonsList: React.FC = () => {
-
   const [nameFilter, setNameFilter] = useState<string>("");
   const [typeFilter, setTypeFilter] = useState<string>("");
-
-  console.log(nameFilter);
-  console.log(typeFilter);
 
   const handleFilterChange = (newNameFilter: string, newTypeFilter: string) => {
     setNameFilter(newNameFilter);
