@@ -10,7 +10,14 @@
   align-items: center;
   text-align: left;
   cursor: pointer;
+  transition: 0.5s;
 }
+
+.pokemon-list-element--info{
+  display: flex;
+  flex-direction: column;
+}
+
 
 .pokemon-list-element img{
   transition: 0.3s;
@@ -22,5 +29,9 @@
 
 .pokemon-list-element:hover img{
   transform: scale(1.15);
+}
+
+.pokemon-list-element:active img{
+  transform: scale(1.4);
 }
 

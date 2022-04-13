@@ -1,6 +1,7 @@
 type Pokemon = {
   name: string;
   height: number;
+  weight: number;
 
   sprites: {
     front_default: string;
@@ -8,8 +9,6 @@ type Pokemon = {
   };
 
   type: string;
-
-
 };
 
 export default Pokemon;

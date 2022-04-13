@@ -48,12 +48,14 @@ export const getPokemonsData: GetPokemonsData = async (url: string) => {
   const pokemonsData: Pokemon[] = detailedData.map((pokemonData: any) => {
     const pokemon: Pokemon = {
       name: capitalizeFirstLetter(pokemonData.name),
-      height: pokemonData.height,
+      //converting height and weight to meters and kgs and making them have only 2 decimal places
+      height: +(pokemonData.height * 0.1).toFixed(2), 
+      weight: +(pokemonData.weight * 0.1).toFixed(2), 
       sprites: {
         front_default: pokemonData.sprites.front_default,
         back_default: pokemonData.sprites.back_default,
       },
-      type: capitalizeFirstLetter(pokemonData.types[0].type.name)
+      type: capitalizeFirstLetter(pokemonData.types[0].type.name),
     };
     return pokemon;
   });
