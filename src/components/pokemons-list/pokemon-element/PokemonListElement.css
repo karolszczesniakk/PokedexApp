@@ -40,7 +40,7 @@
 }
 
 .pokemon-list-element:hover{
-  box-shadow: 0 0 1em rgb(0, 0, 0) ;
+  box-shadow: 0 0 1em rgb(255, 255, 255) ;
 }
 
 .pokemon-list-element:hover img{
