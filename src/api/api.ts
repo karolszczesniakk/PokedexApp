@@ -1,4 +1,3 @@
-import capitalizeFirstLetter from "../functions/capitalizeFirstLtter";
 import { PokemonsData } from "../store/pokemons-slice";
 import Pokemon from "../types/Pokemon";
 
@@ -47,7 +46,7 @@ export const getPokemonsData: GetPokemonsData = async (url: string) => {
   //transforming data
   const pokemonsData: Pokemon[] = detailedData.map((pokemonData: any) => {
     const pokemon: Pokemon = {
-      name: capitalizeFirstLetter(pokemonData.name),
+      name: pokemonData.name,
       //converting height and weight to meters and kgs and making them have only 2 decimal places
       height: +(pokemonData.height * 0.1).toFixed(2), 
       weight: +(pokemonData.weight * 0.1).toFixed(2), 
@@ -55,7 +54,7 @@ export const getPokemonsData: GetPokemonsData = async (url: string) => {
         front_default: pokemonData.sprites.front_default,
         back_default: pokemonData.sprites.back_default,
       },
-      type: capitalizeFirstLetter(pokemonData.types[0].type.name),
+      type: pokemonData.types[0].type.name,
     };
     return pokemon;
   });

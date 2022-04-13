@@ -1,7 +1,11 @@
 .content {
   width: 100%;
   min-height: 100vh;
+  padding-top: 35px;
+  padding-bottom: 200px;
   display:flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
   background-color: rgb(30, 30, 104);
 }

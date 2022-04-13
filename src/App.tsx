@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { GetPokemonsData, getPokemonsData } from './api/api';
 import Layout from './components/layout/Layout';
 import PokemonsList from './components/pokemons-list/PokemonsList';
+import Button from './components/UI/Button';
+import LoadingSpinner from './components/UI/LoadingSpinner';
 import useHttp from './hooks/use-http';
 import { RootState, useAppDispatch } from './store';
 import { pokemonsActions } from './store/pokemons-slice';
@@ -11,7 +13,7 @@ import { pokemonsActions } from './store/pokemons-slice';
 function App() {
   const nextUrl = useSelector((state: RootState) => state.pokemons.next)
   const dispatch = useAppDispatch();
-  const { sendRequest, data: apiData } = useHttp<GetPokemonsData>(getPokemonsData)
+  const { sendRequest, data: apiData,status } = useHttp<GetPokemonsData>(getPokemonsData)
 
   const handleLoadMorePokemons = () => {
     sendRequest(nextUrl);
@@ -34,10 +36,11 @@ function App() {
   console.log(apiData);
   
   return (
-      <Layout>
+    <Layout>
       <PokemonsList />
-      <button onClick={handleLoadMorePokemons}>Get more pokemons</button>
-      </Layout>
+      <Button onClick={handleLoadMorePokemons}>Get more pokemons</Button>
+      {status === "pending" && <LoadingSpinner />}
+    </Layout>
   );
 }
 
