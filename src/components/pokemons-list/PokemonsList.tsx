@@ -20,21 +20,26 @@ const PokemonsList: React.FC = () => {
     (state: RootState) => state.pokemons.pokemons
   );
 
-  let filteredPokemonsData = pokemonsData.filter((pokemon: Pokemon) => {
+  const filteredPokemonsData = pokemonsData.filter((pokemon: Pokemon) => {
     return pokemon.name.includes(nameFilter) && pokemon.type.includes(typeFilter);
   });
+
+  let content = (
+    <div className="pokemons-list">
+      {filteredPokemonsData.map((pokemon: Pokemon) => (
+        <PokemonListElement key={pokemon.name as React.Key} pokemon={pokemon} />
+      ))}
+    </div>
+  );
+
+  if (filteredPokemonsData.length === 0) {
+    content = <p className="centered">No pokemons found!</p>
+  }
 
   return (
     <>
       <FilterOptions onSubmit={handleFilterChange} />
-      <div className="pokemons-list">
-        {filteredPokemonsData.map((pokemon: Pokemon) => (
-          <PokemonListElement
-            key={pokemon.name as React.Key}
-            pokemon={pokemon}
-          />
-        ))}
-      </div>
+      {content}
     </>
   );
 };

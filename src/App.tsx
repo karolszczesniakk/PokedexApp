@@ -31,14 +31,10 @@ function App() {
     }
   }, [apiData,dispatch]);
   
-  let content = <LoadingSpinner />
-
-  if (status === "completed" && apiData) {
-    content = <PokemonsList />
-  }
+  let content = <PokemonsList />
 
   if (error || (status==="completed" && !apiData)) {
-    content = <p>Error with fetching products data</p>
+    content = <p className="centered">Error with fetching products data</p>
   }
   
   return (
